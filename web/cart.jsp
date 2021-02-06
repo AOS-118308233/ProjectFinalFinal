@@ -22,7 +22,7 @@
         <link href="css/heroic-features.css" rel="stylesheet">
 
         <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
-<title>Toys4Us Trading</title>
+        <title>Toys4Us Trading</title>
 
     </head>    
 
@@ -94,21 +94,29 @@
             </tr>
 
 
-            <c:forEach items="${cart}" var="item" >
+            <c:forEach items="${cart.items}" var="item" >
                 <tr>
                     <td>
                         <form action="" method="post">
-                            <input type="hidden" name="productCode" value="${item.productCode}">
-                            <input type=text name="quantity" value="${item.quantity}" id="quantity">
+                            <input type="hidden" name="productCode" 
+                                   value="<c:out value='${item.productCode}'/>">
+                            <input type=text name="quantity" 
+                                   value="<c:out value='${item.quantity}'/>" id="quantity">
                             <input type="submit" value="Update">
                         </form>
                     </td>
-                    <td>${item.productName}</td>
+                    <td><c:out value='${item.productDescription}'/></td>
+                    <td>${item.price.priceCurrencyFormat}</td>
+                    <td>${item.totalCurrencyFormat}</td>
+                    <td>
 
+              
                     <td>
                         <form action="" method="post">
-                            <input type="hidden" name="productCode" value="${item.productCode}">
-                            <input type="hidden" name="quantity" value="0">
+                            <input type="hidden" name="productCode" 
+                                   value="<c:out value='${item.productCode}'/>">
+                            <input type="hidden" name="quantity" 
+                                   value="0">
                             <input type="submit" value="Remove Item">
                         </form>
                     </td>
@@ -118,7 +126,7 @@
 
         <p><b>To change the quantity</b>, enter the new quantity and click on the Update button.</p>
 
-        <form action="shop.jsp" method="post">
+        <form action="./ProductServlet" method="post">
             <input type="hidden" name="action" value="shop">
             <input type="submit" id="continueShopping" value="Continue Shopping">
         </form>

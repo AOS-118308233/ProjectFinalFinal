@@ -122,8 +122,8 @@
                                 <label for="userType" class="col-4 col-form-label">User Type</label> 
                                 <div class="col-8">
                                     <select id="userType" name="userType" class="custom-select" required="required">
-                                        <option value="Admin">Administrator</option>
-                                        <option value="Cust">Customer</option>
+                                        <option value="Admin">ADMIN</option>
+                                        <option value="Cust">GENUSER</option>
                                     </select>
                                 </div>
                             </div> 

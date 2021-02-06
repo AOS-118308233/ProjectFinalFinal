@@ -148,6 +148,10 @@
 
         </div>
 
+        <br/>
+        <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
+        <br/>       
+        
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">
             <div class="container">

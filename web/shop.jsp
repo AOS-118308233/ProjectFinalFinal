@@ -23,7 +23,7 @@
         <link href="css/heroic-features.css" rel="stylesheet">
 
         <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
-<title>Toys4Us Trading</title>
+        <title>Toys4Us Trading</title>
 
     </head>    
 
@@ -80,7 +80,7 @@
         </nav>
 
 
-       
+
         <h2> OUR BEST-SELLING PRODUCTS!!! </h2>
 
         <div class="container">
@@ -97,38 +97,34 @@
                     <li><a href="#">Animals</a></li>
                     <li><a href="#">Branded Toys</a></li>
                 </ul>
-            </div>
-            <br/>
+
+                <br/>
 
 
-            <div class="row">
-                <c:forEach items="${Product}" var="topProduct">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="resources/images/${topProduct.productImage}" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/SingleProductServlet">${topProduct.productName}</a></h4>
-                                <h5> €${topProduct.price} </h5>
-                                <p class="card-text">${topProduct.productDescription}</p>
-                                <form action="cart.jsp" method="post">
-                                    <input type = "submit" value="Add To Cart" class="btnBuy">
-                                </form>
+                <div class="row text-center">
+                    <c:forEach items="${product}" var="topProduct">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card" style="height:600px; width:350px;">
+                                <img class="card-img-top" style="height:350px; width:350px;" src="resources/images/${topProduct.productImage}" alt="product">                                <div class="card-body">
+                                    <h4><a href="./SingleProductServlet">${topProduct.productName}</a></h4>
+                                    <h5> €${topProduct.price}</h5>
+                                    <p class="card-text">${topProduct.productDescription}</p>
+                                    <form action="cart.jsp" method="post">
+                                        <input type = "submit" value="Add To Cart" class="btnBuy">
+                                    </form>
+                                </div>
+
                             </div>
-
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
 
+                </div>
+                <!-- /.row -->
 
             </div>
-            <!-- /.row -->
-
-
 
         </div>
         <!-- /.row -->
-
-
 
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">

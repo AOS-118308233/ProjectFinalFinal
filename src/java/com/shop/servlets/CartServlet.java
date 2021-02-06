@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/cart.jsp";
+        
         ServletContext sc = getServletContext();
         
         // get current action
@@ -51,6 +51,7 @@ public class CartServlet extends HttpServlet {
         }
 
         // perform action and set URL to appropriate page
+        String url = null;
         if (action.equals("shop")) {
             url = "/shop.jsp";    // the "shop" page
         } 

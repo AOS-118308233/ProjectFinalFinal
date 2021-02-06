@@ -8,7 +8,6 @@ package com.shop.servlets;
 import com.shop.model.User;
 import com.shop.service.UserManager;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class userAdminServlet extends HttpServlet {
 
-    /**
+   /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -189,4 +188,3 @@ public class userAdminServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

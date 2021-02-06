@@ -81,7 +81,7 @@
         <br/>
         <br/>
 
-        <div class="container bg-light">
+         <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="my-4">User Administration</h1>
@@ -90,29 +90,29 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                                                      
                             <tbody>
-                                <c:forEach items="${users}" var="users">
+                                <c:forEach items="${users}" var="user">
                                     <c:url value="/userAdminServlet" var="editUserUrl">
                                         <c:param name="action" value="edit"/>
-                                        <c:param name="id" value="${users.id}"/>
+                                        <c:param name="id" value="${user.id}"/>
                                     </c:url>
                                     <c:url value="/userAdminServlet" var="deleteUserUrl">
                                         <c:param name="action" value="delete"/>
-                                        <c:param name="id" value="${users.id}"/>
+                                        <c:param name="id" value="${user.id}"/>
                                     </c:url>
                                     <tr>
-                                        <td scope="row">${users.id}</td>
-                                        <td>${users.email}</td>
-                                        <td>${users.firstName}</td>
-                                        <td>${users.lastName}</td>
-                                        <td><a href="${editUserUrl}"> Edit User </a> <a href="${deleteUserUrl}">Delete User</a></td>
+                                        <td scope="row">${user.id}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.firstName}</td>
+                                        <td>${user.lastName}</td>
+                                        <td><a href="${editUserUrl}"> Edit Users </a><a href="${deleteUserUrl}">Delete Users</a></td>
                                     </tr>
                                 </c:forEach>
                                 <tr>
@@ -140,10 +140,11 @@
 
         </div>
         <!-- /.container -->
-        <div class="col-lg-12">
-            <br/>
-        </div>
-
+     
+        <br/>
+        <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
+        <br/>
+        
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">
             <div class="container">

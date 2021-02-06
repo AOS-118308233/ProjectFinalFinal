@@ -27,7 +27,7 @@ public class ProductServlet extends HttpServlet {
         ProductManager pMan = new ProductManager();
         ArrayList<Product> topProducts = pMan.getHomePageProducts();
         
-        request.setAttribute("Product", topProducts);
+        request.setAttribute("product", topProducts);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
         
         System.out.println("Debugging");

@@ -3,6 +3,8 @@
     <servlet>
         <servlet-name>DbInitServlet</servlet-name>
         <servlet-class>com.shop.utils.DbInitServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+            
     </servlet>
     <servlet>
         <servlet-name>CartServlet</servlet-name>
