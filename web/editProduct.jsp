@@ -36,7 +36,7 @@
         <!-- Nav Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.jsp">
                     <img src="resources/images/newLogo.png" alt="logo" style="display:inline-block;" height="60" width="90">
                     <span style="display: inline-block;">Toys4Us</span>
                 </a>
