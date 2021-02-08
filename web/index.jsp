@@ -74,14 +74,19 @@
                             </form>
                         </li>
                         <li class="nav-item">
-                            <c:url value="links.jsp" var="engURL">
+                            <c:url value="application.jsp" var="engURL">
                                 <c:param name="locale" value="en_US"/>
                             </c:url>
-                            <a href="${engURL}"><img src="resources/images/englishFlag.jpg" alt="engFlag" height="30" width="30"/></a>
-                            <c:url value="links.jsp" var="frURL">
-                                <c:param name="locale" value="fr_fr"/>
+                            
+                            <a href="${engURL}">
+                                <img src="resources/images/englishFlag.jpg" alt="engFlag" height="30" width="30"/>
+                            </a>
+                                
+                            <c:url value="application.jsp" var="frURL">
+                                <c:param name="locale" value="fr_Fr"/>
                             </c:url>
-                            <a href="${frURL}"><img src="resources/images/frenchFlag.jpg" alt="frFlag" height="30" width="30"/></a>
+                            <a href="${frURL}">
+                                <img src="resources/images/frenchFlag.jpg" alt="frFlag" height="30" width="30"/></a>
                         </li>
                     </ul>
                 </div>

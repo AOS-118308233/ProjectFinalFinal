@@ -8,6 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fmt:requestEncoding value="UTF-8" />
+
 <html>
 <fmt:setLocale value="${param.locale}"  />
 <head>
@@ -19,18 +20,16 @@
         <br>
         <table border="1">
             <tr>
-                <td><fmt:message key="firstName"/></td>
-                <td>${param.firstname}</td>
-            </tr>
-            
-            <tr>
                 <td><fmt:message key="lastName"/></td>
                 <td>${param.lastname}</td>
             </tr>
-            
             <tr>
-                <td><fmt:message key="email"/></td>
-                <td>${param.email}</td>
+                <td><fmt:message key="firstName"/></td>
+                <td>${param.firstname}</td>
+            </tr>
+            <tr>
+                <td><fmt:message key="postalCode"/></td>
+                <td>${param.postcode}</td>
             </tr>
             <tr>
                 <td><fmt:message key="password"/></td>

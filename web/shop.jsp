@@ -101,7 +101,7 @@
                 <br/>
 
 
-                <div class="row text-center">
+                <div class="row">
                     <c:forEach items="${product}" var="topProduct">
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card" style="height:600px; width:350px;">
