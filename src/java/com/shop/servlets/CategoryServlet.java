@@ -5,11 +5,8 @@
  */
 package com.shop.servlets;
 
-import com.shop.model.Product;
-import com.shop.service.ProductManager;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,21 +16,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aoife
  */
-public class ProductServlet extends HttpServlet {
+public class CategoryServlet extends HttpServlet {
 
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        ProductManager pMan = new ProductManager();
-        ArrayList<Product> topProducts = pMan.getHomePageProducts();
-        
-        request.setAttribute("product", topProducts);
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
-        
-        System.out.println("Debugging");
+        //While looop basic structure
+        // do {
+        // //code to be executed
+        // }
+        // while (condition)
     }
-     
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

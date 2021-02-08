@@ -71,7 +71,9 @@
                             <a class="nav-link" href="cart.jsp">View Basket  <i class="fas fa-shopping-basket"></i></a>
                         </li>
                         <li class='nav-item'>
-                            <input type="text" placeholder="Search...">
+                            <form action ="/SearchServlet" method="POST">
+                                <input type="text" placeholder="Search...">
+                            </form>
                         </li>
 
                     </ul>
@@ -79,10 +81,12 @@
             </div>
         </nav>
 
+        <br/>
+        <br/>
+        <h1 class="my-4" style="text-align: center;">Product Administration</h1>
         <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="my-4">Product Administration</h1>
                     <div class="row">
                         <table class="table table-bordered">
                             <thead>
@@ -117,8 +121,8 @@
                                         <td>${product.price}</td>
                                         <td>${product.colour}</td>
                                         <td>${product.animalType}</td>
-                                        <td><img class="card-img-top" src="resources/images/${topProduct.productImage}" alt=""></td>
-                                        <td>${category}</td>
+                                        <td><img src="${product.productImage}" alt="" height="100" width="100"></td>
+                                        <td>${product.category}</td>
 
                                         <td><a href="${editProductUrl}"> Edit</a> <a href="${deleteProductUrl}">Delete</a></td>
                                     </tr>
@@ -145,13 +149,11 @@
 
             </div>
             <!-- /.row -->
+            <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
+            <br/>
+            <br/>
+        </div>    
 
-        </div>
-
-        <br/>
-        <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
-        <br/>       
-        
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">
             <div class="container">

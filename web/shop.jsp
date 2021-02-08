@@ -71,7 +71,9 @@
                             <a class="nav-link" href="cart.jsp">View Basket  <i class="fas fa-shopping-basket"></i></a>
                         </li>
                         <li class='nav-item'>
-                            <input type="text" placeholder="Search...">
+                            <form action ="/SearchServlet" method="POST">
+                                <input type="text" placeholder="Search...">
+                            </form>
                         </li>
 
                     </ul>
@@ -93,9 +95,9 @@
             <div class="container" id="Filters">
                 <h2>Filter By:</h2>
                 <ul id="myUL">
-                    <li><a href="#">Teddy Bears</a></li>
-                    <li><a href="#">Animals</a></li>
-                    <li><a href="#">Branded Toys</a></li>
+                    <li><a href="/CategoryServlet">Teddy Bears</a></li>
+                    <li><a href="/CategoryServlet">Animals</a></li>
+                    <li><a href="/CategoryServlet">Branded Toys</a></li>
                 </ul>
 
                 <br/>

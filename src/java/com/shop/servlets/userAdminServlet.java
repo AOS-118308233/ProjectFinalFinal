@@ -39,7 +39,7 @@ public class userAdminServlet extends HttpServlet {
         String url = null;
        
         if (action == null)
-            request.getRequestDispatcher("/userAdmin.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         
         
         if (action.equals("listUsers")){

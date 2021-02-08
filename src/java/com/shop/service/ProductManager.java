@@ -19,7 +19,7 @@ public class ProductManager {
     public ArrayList<Product> getHomePageProducts() {
 
         ProductDAO pDao = new ProductDAO();
-        return pDao.getTopProducts(12);
+        return pDao.getTopProducts(9);
 
     }
 
@@ -52,8 +52,11 @@ public class ProductManager {
 
     }
 
-    public void getCategoryList() {
-
+    public void getCategoryList(ArrayList<Product> productData) {
+        ProductDAO pDao = new ProductDAO();
+        pDao.getCategoryList(productData);
+        
+        
     }
 
     public void searchProducts() {

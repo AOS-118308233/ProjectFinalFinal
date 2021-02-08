@@ -4,7 +4,6 @@
         <servlet-name>DbInitServlet</servlet-name>
         <servlet-class>com.shop.utils.DbInitServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-            
     </servlet>
     <servlet>
         <servlet-name>CartServlet</servlet-name>
@@ -33,6 +32,10 @@
     <servlet>
         <servlet-name>userAdminServlet</servlet-name>
         <servlet-class>com.shop.servlets.userAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>com.shop.servlets.CategoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DbInitServlet</servlet-name>
@@ -65,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>userAdminServlet</servlet-name>
         <url-pattern>/userAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/CategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -19,7 +19,7 @@
 
         <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
 
-       <title>Toys4Us Trading</title>
+        <title>Toys4Us Trading</title>
 
     </head>    
 
@@ -67,7 +67,9 @@
                             <a class="nav-link" href="cart.jsp">View Basket  <i class="fas fa-shopping-basket"></i></a>
                         </li>
                         <li class='nav-item'>
-                            <input type="text" placeholder="Search...">
+                            <form action ="/SearchServlet" method="POST">
+                                <input type="text" placeholder="Search...">
+                            </form>
                         </li>
 
                     </ul>
@@ -81,7 +83,7 @@
         <br/>
         <br/>
 
-         <div class="container bg-light">
+        <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="my-4">User Administration</h1>
@@ -96,7 +98,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                                                     
+
                             <tbody>
                                 <c:forEach items="${users}" var="user">
                                     <c:url value="/userAdminServlet" var="editUserUrl">
@@ -137,14 +139,14 @@
 
             </div>
             <!-- /.row -->
-
+            <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
+            <br/>
+            <br/>
         </div>
         <!-- /.container -->
-     
-        <br/>
-        <a class="btnAdminHome" href="adminHome.jsp">Return to Admin Homepage</a>
-        <br/>
-        
+
+
+
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">
             <div class="container">

@@ -69,7 +69,9 @@
                             <a class="nav-link" href="cart.jsp">View Basket  <i class="fas fa-shopping-basket"></i></a>
                         </li>
                         <li class='nav-item'>
-                            <input type="text" placeholder="Search...">
+                            <form action ="/SearchServlet" method="POST">
+                                <input type="text" placeholder="Search...">
+                            </form>
                         </li>
 
                     </ul>

@@ -86,14 +86,14 @@ public class ProductDAO {
         DBManager dbmgr = new DBManager();
         Connection con = dbmgr.getConnection();
 
-        String productName = null;
-        String productDescription = null;
-        String brandName = null;
-        int price = 0;
-        String colour = null;
-        String animalType = null;
-        String productImage = null;
-        String category = null;
+        String productName;
+        String productDescription;
+        String brandName;
+        int price;
+        String colour;
+        String animalType;
+        String productImage;
+        String category;
 
         String query = String.format("SELECT * FROM PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
 
@@ -167,7 +167,7 @@ public class ProductDAO {
 
         try {
             stmt = con.createStatement();
-            String sql = String.format("INSERT INTO PRODUCTS(PRODUCT_NAME,PRODUCT_DESCRIPTION,BRAND_NAME,PRICE,COLOUR,ANIMAL,IMAGE,CATEGORY) " 
+            String sql = String.format("INSERT INTO PRODUCTS(PRODUCT_NAME,PRODUCT_DESCRIPTION,BRAND_NAME,PRICE,COLOUR,ANIMAL,IMAGE,CATEGORY) "
                     + "VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory());
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -193,7 +193,7 @@ public class ProductDAO {
         try {
 
             stmt = con.createStatement();
-            String sql = String.format("UPDATE PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE='%s', COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE=%s", 
+            String sql = String.format("UPDATE PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE='%s', COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE=%s",
                     newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory(), newProduct.getProductCode());
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -218,7 +218,7 @@ public class ProductDAO {
         try {
 
             stmt = con.createStatement();
-            var sql = String.format("DELETE FROM PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
+            String sql = String.format("DELETE FROM PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -233,9 +233,58 @@ public class ProductDAO {
 
     }
 
-    public void getCategoryList() {
+    public void getCategoryList(ArrayList<Product> productData) {
+
+        DBManager dmbgr = new DBManager();
+        Connection con = dmbgr.getConnection();
+        Statement stmt = null;
+
+        try {
+            stmt = con.createStatement();
+            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=BEAR");
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         
-       
+        try {
+            stmt = con.createStatement();
+            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=ANIMAL");
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        try {
+            stmt = con.createStatement();
+            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=BRAND");
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        
     }
 
     public class findProducts {
