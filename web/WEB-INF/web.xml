@@ -23,7 +23,7 @@
     </servlet>
     <servlet>
         <servlet-name>SingleProductServlet</servlet-name>
-        <servlet-class>com.shop.servlets.SingleProductServlet</servlet-class>
+        <servlet-class>com.shop.servlets.ViewProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>productAdminServlet</servlet-name>
@@ -32,10 +32,6 @@
     <servlet>
         <servlet-name>userAdminServlet</servlet-name>
         <servlet-class>com.shop.servlets.userAdminServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CategoryServlet</servlet-name>
-        <servlet-class>com.shop.servlets.CategoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DbInitServlet</servlet-name>
@@ -68,10 +64,6 @@
     <servlet-mapping>
         <servlet-name>userAdminServlet</servlet-name>
         <url-pattern>/userAdminServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CategoryServlet</servlet-name>
-        <url-pattern>/CategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

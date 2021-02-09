@@ -92,7 +92,7 @@
         
         <br/>
         <br/>
-        <a class="btnGoHome" href="index.html">Go to Home Page</a>
+        <a class="btnGoHome" href="index.jsp">Go to Home Page</a>
         </div>
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">

@@ -109,21 +109,21 @@
                         <div class="form-group row">
                             <label for="prodCode" class="col-4 col-form-label">Product Code: </label> 
                             <div class="col-8">
-                                <input id="prodCode" name="prodCode" type="text" value="${oldProduct.productCode}" class="form-control" required="required">
+                                <input id="prodCode" name="productCode" type="text" value="${oldProduct.productCode}" class="form-control" required="required">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="prodName" class="col-4 col-form-label">Product Name: </label> 
                             <div class="col-8">
-                                <input id="prodName" name="prodName" type="text" value="${oldProduct.productName}" class="form-control" required="required">
+                                <input id="prodName" name="productName" type="text" value="${oldProduct.productName}" class="form-control" required="required">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="prodDescr" class="col-4 col-form-label">Product Description: </label> 
                             <div class="col-8">
-                                <input id="prodDescr" name="prodDescr" type="text" value="${oldProduct.productDescription}" class="form-control" required="required">
+                                <input id="prodDescr" name="productDescription" type="text" value="${oldProduct.productDescription}" class="form-control" required="required">
                             </div>
                         </div>
 
@@ -158,7 +158,7 @@
                         <div class="form-group row">
                             <label for="prodImage" class="col-4 col-form-label">Product Image: </label> 
                             <div class="col-8">
-                                <input id="prodImage" name="prodImage" type="text" value="${oldProduct.productImage}" class="form-control" required="required">
+                                <input id="prodImage" name="productImage" type="text" value="${oldProduct.productImage}" class="form-control" required="required">
                             </div>
                         </div>
 

@@ -79,17 +79,14 @@
         <br/>
         <br/>
 
-        <h2 class="payment">Please enter your Payment Details </h2>
+        <h2 class="payment">Please enter your Personal Details </h2>
 
         <div class="container">
 
             <!-- The following code was taken from https://bootsnipp.com/forms after I built the form on the website -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" style="text-align:left;">
                 
                 <fieldset>
-
-                    <!-- Form Name -->
-                    <legend>Payment Details</legend>
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -98,7 +95,7 @@
                             <input id="fName" name="textinput" type="text" placeholder="First Name " class="form-control input-md">
 
                         </div>
-
+                    </div>
 
                         <!-- Text input-->
                         <div class="form-group">

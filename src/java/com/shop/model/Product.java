@@ -32,6 +32,10 @@ public class Product implements Serializable{
        //Empty Constructor
     }
 
+    public Product(String string, String string0, String string1, String string2, int aInt, String string3, String string4, String string5, String string6) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the productCode
      */

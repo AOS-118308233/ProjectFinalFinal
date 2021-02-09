@@ -78,13 +78,14 @@
         <br/>
         <br/>
 
-        <br/>
-        <h1 style = "text-align:center">Congratulations! Your order has been submitted!</h1>
-        <br/>
-        <h2 style = "text-align:center">Please check your email mail for you confirmation email with all delivery details</h2>
-        <br/>
-        <a class="btnGoHome" href="index.html">Return to Home Page</a>
-
+        <div class="container">
+            <br/>
+            <h1 style = "text-align:center">Congratulations! Your order has been submitted!</h1>
+            <br/>
+            <h2 style = "text-align:center">Please check your email mail for you confirmation email with all delivery details</h2>
+            <br/>
+            <a class="btnGoHome" href="index.jsp">Return to Home Page</a>
+        </div>
         <!-- Footer -->
         <footer class="py-5 bg-dark" id="footer">
             <div class="container">

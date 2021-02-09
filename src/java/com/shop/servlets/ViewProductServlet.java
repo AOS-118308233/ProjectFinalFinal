@@ -5,6 +5,8 @@
  */
 package com.shop.servlets;
 
+import com.shop.model.Product;
+import com.shop.service.ProductManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,25 +18,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aoife
  */
-public class CategoryServlet extends HttpServlet {
+public class ViewProductServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //While looop basic structure
-        // do {
-        // //code to be executed
-        // }
-        // while (condition)
+        //Should be /viewProduct?productCode=xx
+        
+        String productName = request.getParameter("productName");
+        ProductManager pMan = new ProductManager();
+        Product singleProduct = pMan.getProductByName(productName);
+        
+        request.setAttribute("singleProduct", singleProduct);
+        request.getRequestDispatcher("/viewProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

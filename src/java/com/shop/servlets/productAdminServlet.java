@@ -47,37 +47,37 @@ public class productAdminServlet extends HttpServlet {
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
 
-        if (action.equals("listProducts")) {
+        if ("listProducts".equals(action)) {
             ArrayList<Product> products = pMan.getAllProducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
 
-        if (action.equals("add")) {
+        if ("add".equals(action)) {
             request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
         }
-
-        if (action.equals("delete")) {
-            deleteProduct(request, response);
-            ArrayList<Product> products = pMan.getAllProducts();
-            request.setAttribute("products", products);
-            request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
-        }
-
-        if (action.equals("insertProduct")) {
+        
+        if ("insertProduct".equals(action)) {
             insertProduct(request, response);
             ArrayList<Product> products = pMan.getAllProducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
 
-        if (action.equals("updateCompleteProduct")) {
+        if ("delete".equals(action)) {
+            deleteProduct(request, response);
+            ArrayList<Product> products = pMan.getAllProducts();
+            request.setAttribute("products", products);
+            request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
+        }
+
+        if ("updateCompleteProduct".equals(action)) {
             updateProduct(request, response);
             ArrayList<Product> products = pMan.getAllProducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
-        if (action.equals("edit")) {
+        if ("edit".equals(action)) {
             String productCode = request.getParameter("productCode");
 
             if (productCode == null) {
@@ -135,6 +135,7 @@ public class productAdminServlet extends HttpServlet {
 
     private void insertProduct(HttpServletRequest request, HttpServletResponse response) {
 
+        String productCode = request.getParameter("productCode");
         String productName = request.getParameter("productName");
         String productDescription = request.getParameter("productDescription");
         String brandName = request.getParameter("brandName");
@@ -145,6 +146,7 @@ public class productAdminServlet extends HttpServlet {
         String category = request.getParameter("category");
 
         Product newProduct = new Product();
+        newProduct.setProductCode(productCode);
         newProduct.setProductName(productName);
         newProduct.setProductDescription(productDescription);
         newProduct.setBrandName(brandName);

@@ -42,37 +42,37 @@ public class userAdminServlet extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         
         
-        if (action.equals("listUsers")){
+        if ("listUsers".equals(action)){
             ArrayList<User> users = uServ.getAllUsers();
             request.setAttribute("users", users);
             request.getRequestDispatcher("/userAdmin.jsp").forward(request, response);
         }
             
-        if (action.equals("add")){
+        if ("add".equals(action)){
             request.getRequestDispatcher("/addUser.jsp").forward(request, response);
         }
         
-        if (action.equals("delete")){
+        if ("delete".equals(action)){
             deleteUser(request,response);
             ArrayList<User> users = uServ.getAllUsers();
             request.setAttribute("users", users);
             request.getRequestDispatcher("/userAdmin.jsp").forward(request, response);
         }
         
-        if (action.equals("insertUser")){
+        if ("insertUser".equals(action)){
             insertUser(request,response);
             ArrayList<User> users = uServ.getAllUsers();
             request.setAttribute("users", users);
             request.getRequestDispatcher("/userAdmin.jsp").forward(request, response);
         }
         
-        if (action.equals("updateCompleteUser")){
+        if ("updateCompleteUser".equals(action)){
             updateUser(request,response);
             ArrayList<User> users = uServ.getAllUsers();
             request.setAttribute("users", users);
             request.getRequestDispatcher("/userAdmin.jsp").forward(request, response);
         }
-        if (action.equals("edit")){
+        if ("edit".equals(action)){
             String userId = request.getParameter("id");
             
             if (userId == null)

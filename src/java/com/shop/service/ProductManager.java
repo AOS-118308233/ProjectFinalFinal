@@ -19,7 +19,7 @@ public class ProductManager {
     public ArrayList<Product> getHomePageProducts() {
 
         ProductDAO pDao = new ProductDAO();
-        return pDao.getTopProducts(9);
+        return pDao.getTopProducts(12);
 
     }
 
@@ -33,6 +33,12 @@ public class ProductManager {
         ProductDAO pDao = new ProductDAO();
         ArrayList<Product> productList = pDao.getTopProducts(9);
         return productList;
+    }
+    
+    public Product getProductByName (String productName) {
+        ProductDAO pDao = new ProductDAO();
+        Product productData = pDao.getProductByName(productName);
+        return productData;
     }
 
     public void insertProduct(Product nProduct) {
@@ -52,12 +58,13 @@ public class ProductManager {
 
     }
 
-    public void getCategoryList(ArrayList<Product> productData) {
-        ProductDAO pDao = new ProductDAO();
-        pDao.getCategoryList(productData);
+    //public ArrayList<Product> getCategoryList() {
+    //    ProductDAO pDao = new ProductDAO();
+    //    ArrayList<Product> categoryList = pDao.getCategoryList();
+    //    return categoryList;
+       
         
-        
-    }
+    //}
 
     public void searchProducts() {
         //search box is a from and submit it to the SearchServlet

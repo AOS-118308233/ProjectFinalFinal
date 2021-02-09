@@ -122,16 +122,16 @@
                 <a class="language" style="float:right" href="links.html">Language | English | French | German |</a>
                 <br/>
                 <!-- Second Line -->
-                <a class="Cookies" style="float:left" href="links.html">Cookies</a>
-                <a class="currency" style="float:right" href="links.html">Currency| ? | £ | $ |</a>
+                <a class="Cookies" style="float:left" href="links.jsp">Cookies</a>
+                <a class="currency" style="float:right" href="links.jsp">Currency| ? | £ | $ |</a>
                 <br>
                 <!-- Third Line --> 
-                <a class="delivery" style="float:left" href="links.html">Delivery and Returns</a>
+                <a class="delivery" style="float:left" href="links.jsp">Delivery and Returns</a>
                 <br/>
                 <center>
-                    <a class="fab fa-facebook-square fa-2x" href='links.html'></a>
-                    <a class="fab fa-instagram-square fa-2x" href='links.html'></a>
-                    <a class="fab fa-twitter-square fa-2x" href='links.html'></a>
+                    <a class="fab fa-facebook-square fa-2x" href='links.jsp'></a>
+                    <a class="fab fa-instagram-square fa-2x" href='links.jsp'></a>
+                    <a class="fab fa-twitter-square fa-2x" href='links.jsp'></a>
                     <br/>
                     <p class="m-0 text-center text-white">Copyright &copy; Toys4Us</p></center>
             </div>

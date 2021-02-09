@@ -80,13 +80,15 @@
         <br/>
 
         <h2>Please enter your Payment Details</h2>
+        
+        <br/>
 
         <!-- Form taken from https://bootsnipp.com/forms after I built the form on the website -->
 
         <form class="form-horizontal">
             <fieldset>
 
-                <div class="paymentDetails">
+                <div class="container" id="paymentDetails" style="text-align:left;">
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="cardName">Cardholder's Name</label>  
@@ -131,7 +133,7 @@
 
             </fieldset>
 
-            
+        </form>  
             <!-- Bootstrap core JavaScript -->
             <script src="vendor/jquery/jquery.min.js"></script>
             <script src="vendor/popper/popper.min.js"></script>

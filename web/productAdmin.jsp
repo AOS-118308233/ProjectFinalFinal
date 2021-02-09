@@ -135,7 +135,7 @@
                                     <c:url value="/productAdminServlet" var="addProductUrl">
                                         <c:param name="action" value="add"/>
                                     </c:url>
-                                    <td><a href="${addProductUrl}" > Add </a></td>
+                                    <td><a href="${addProductUrl}" > Add Product </a></td>
 
                                 </tr>
                             </tbody>

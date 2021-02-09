@@ -41,7 +41,7 @@ public class ProductDAO {
 
         ArrayList<Product> productData = new ArrayList();
 
-        String query = "SELECT * FROM PRODUCTS";
+        String query = "SELECT * FROM DBUSER.PRODUCTS";
         try {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -95,7 +95,7 @@ public class ProductDAO {
         String productImage;
         String category;
 
-        String query = String.format("SELECT * FROM PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
+        String query = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
 
         try {
             PreparedStatement stmt = con.prepareStatement(query);
@@ -124,19 +124,19 @@ public class ProductDAO {
         DBManager dm = new DBManager();
         Connection con = dm.getConnection();
 
-        String productCode = null;
-        String productName = null;
-        String productDescription = null;
-        String brandName = null;
-        int price = 0;
-        String colour = null;
-        String animalType = null;
-        String productImage = null;
-        String category = null;
+        String productCode;
+        String productName;
+        String productDescription;
+        String brandName;
+        int price;
+        String colour;
+        String animalType;
+        String productImage;
+        String category;
 
         ArrayList<Product> productData = new ArrayList();
 
-        String query = "SELECT * FROM PRODUCTS";
+        String query = "SELECT * FROM DBUSER.PRODUCTS";
         try {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -159,6 +159,31 @@ public class ProductDAO {
         return productData;
 
     }
+    
+    public Product getProductByName(String productName) {
+        
+        DBManager dm = new DBManager();
+        Connection con = dm.getConnection();
+               
+        Product productData = new Product();
+        String query = "SELECT * FROM DBUSER.PRODUCTS WHERE PRODUCT_NAME" + "'" + productName + "'" ;
+        
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery(); 
+           
+            while (rs.next()) {   
+            productData = new Product(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+            }
+        }    
+            catch (SQLException e) {
+            e.printStackTrace();
+        }
+            
+            return productData;
+        } 
+    
+    
 
     public void insertProduct(Product newProduct) {
         DBManager dmbgr = new DBManager();
@@ -167,8 +192,8 @@ public class ProductDAO {
 
         try {
             stmt = con.createStatement();
-            String sql = String.format("INSERT INTO PRODUCTS(PRODUCT_NAME,PRODUCT_DESCRIPTION,BRAND_NAME,PRICE,COLOUR,ANIMAL,IMAGE,CATEGORY) "
-                    + "VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory());
+            String sql = String.format("INSERT INTO DBUSER.PRODUCTS(PRODUCT_NAME, PRODUCT_DESCRIPTION, BRAND_NAME, PRICE,COLOUR,ANIMAL,IMAGE,CATEGORY) "
+                    + "VALUES('%s', '%s', '%s', %s, '%s', '%s', '%s', '%s')", newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory());
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -193,7 +218,7 @@ public class ProductDAO {
         try {
 
             stmt = con.createStatement();
-            String sql = String.format("UPDATE PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE='%s', COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE=%s",
+            String sql = String.format("UPDATE DBUSER.PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE=%s, COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE=%s",
                     newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory(), newProduct.getProductCode());
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -218,7 +243,7 @@ public class ProductDAO {
         try {
 
             stmt = con.createStatement();
-            String sql = String.format("DELETE FROM PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
+            String sql = String.format("DELETE FROM DBUSER.PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -241,7 +266,7 @@ public class ProductDAO {
 
         try {
             stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=BEAR");
+            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=BEAR");
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -256,7 +281,7 @@ public class ProductDAO {
         
         try {
             stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=ANIMAL");
+            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=ANIMAL");
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -271,7 +296,7 @@ public class ProductDAO {
         
         try {
             stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY=BRAND");
+            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=BRAND");
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
