@@ -86,14 +86,15 @@ public class ProductDAO {
         DBManager dbmgr = new DBManager();
         Connection con = dbmgr.getConnection();
 
-        String productName;
-        String productDescription;
-        String brandName;
-        int price;
-        String colour;
-        String animalType;
-        String productImage;
-        String category;
+        String productName = null;
+        String productDescription = null;
+        String brandName = null;
+        int price = 0;
+        String colour = null;
+        String animalType = null;
+        String productImage = null;
+        String category = null;
+        Product tempProduct = new Product();
 
         String query = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE PRODUCT_CODE=%s", productCode);
 
@@ -115,6 +116,16 @@ public class ProductDAO {
             e.printStackTrace();
         }
 
+        tempProduct.setProductName(productName);
+        tempProduct.setProductDescription(productDescription);
+        tempProduct.setBrandName(brandName);
+        tempProduct.setPrice(price);
+        tempProduct.setColour(colour);
+        tempProduct.setAnimalType(animalType);
+        tempProduct.setProductImage(productImage);
+        tempProduct.setCategory(category);
+        
+        
         return null;
 
     }
@@ -124,15 +135,29 @@ public class ProductDAO {
         DBManager dm = new DBManager();
         Connection con = dm.getConnection();
 
-        String productCode;
-        String productName;
-        String productDescription;
-        String brandName;
-        int price;
-        String colour;
-        String animalType;
-        String productImage;
-        String category;
+        String productCode= null;
+        String productName = null;
+        String productDescription = null;
+        String brandName= null;
+        int price = 0;
+        String colour= null;
+        String animalType= null;
+        String productImage= null;
+        String category= null;
+        
+        Product tempProduct = new Product();
+        tempProduct.setProductCode(productCode);
+        tempProduct.setProductName(productName);
+        tempProduct.setProductDescription(productDescription);
+        tempProduct.setBrandName(brandName);
+        tempProduct.setPrice(price);
+        tempProduct.setColour(colour);
+        tempProduct.setAnimalType(animalType);
+        tempProduct.setProductImage(productImage);
+        tempProduct.setCategory(category);
+        
+        
+        
 
         ArrayList<Product> productData = new ArrayList();
 
@@ -156,6 +181,7 @@ public class ProductDAO {
             e.printStackTrace();
         }
 
+        
         return productData;
 
     }
@@ -218,7 +244,7 @@ public class ProductDAO {
         try {
 
             stmt = con.createStatement();
-            String sql = String.format("UPDATE DBUSER.PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE=%s, COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE=%s",
+            String sql = String.format("UPDATE DBUSER.PRODUCTS SET PRODUCT_NAME='%s', PRODUCT_DESCRIPTION='%s', BRAND_NAME='%s', PRICE=%s, COLOUR='%s', ANIMAL='%s', IMAGE='%s', CATEGORY='%s' WHERE PRODUCT_CODE='%s'",
                     newProduct.getProductName(), newProduct.getProductDescription(), newProduct.getBrandName(), newProduct.getPrice(), newProduct.getColour(), newProduct.getAnimalType(), newProduct.getProductImage(), newProduct.getCategory(), newProduct.getProductCode());
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -311,6 +337,7 @@ public class ProductDAO {
 
         
     }
+
 
     public class findProducts {
         //search box is a from and submit it to the SearchServlet

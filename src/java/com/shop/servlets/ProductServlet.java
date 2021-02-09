@@ -25,7 +25,7 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         
         ProductManager pMan = new ProductManager();
-        ArrayList<Product> topProducts = pMan.getHomePageProducts();
+        ArrayList<Product> topProducts = pMan.getAllProducts();
         //ArrayList<Product> categories = pMan.getCategoryList();
         
         request.setAttribute("product", topProducts);

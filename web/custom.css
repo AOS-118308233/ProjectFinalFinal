@@ -311,3 +311,18 @@ h1, h2 {
     border-color: black;
 }
 
+.btnEditUser, .btnEditProduct, .btnAddProduct, .btnAddUser {
+    background-color: #8AA994;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:2em;
+    color: white;
+    text-align: center;
+}
+
+.btnEditUser:hover, .btnEditProduct:hover, .btnAddProduct:hover, .btnAddUser:hover {
+    color: black;
+    border-color: black;
+}

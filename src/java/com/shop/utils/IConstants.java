@@ -20,4 +20,6 @@ public interface IConstants {
     //Session Keys
     public static final String SESSION_KEY_USER = "SKUSER";
     public static final String SESSION_KEY_ALL_USERS = "SKALLUSERS";
+    
+    
 }

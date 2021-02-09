@@ -9,6 +9,8 @@
     something like /resources/images/${product.productImage}, the same goes with 
     trying to add a € into the price column even though it worked in shop.jsp?
     Read and Delete functions currently working 
+    Insert works but you can only see 9 at a time and there's 12 products in the 
+    DB currently so you would have to see delete some to see new ones 
 8. Search box in the nav is not functional atm
 9. No code implemented
 10. Have the pages in place - google is telling me that "Do you want to translate

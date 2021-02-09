@@ -123,15 +123,17 @@
                             <div class="form-group row">
                                 <label for="userType" class="col-4 col-form-label">User Type</label> 
                                 <div class="col-8">
-                                    <select id="userType" name="userType" class="custom-select" required="required">
-                                        <option value="Admin">ADMIN</option>
-                                        <option value="Cust">GENUSER</option>
-                                    </select>
+                                    <input type="radio" id="admin" name="userType" value="Administrator">
+                                        <label for="admin">Administrator</label>
+                                        <br>
+                                    <input type="radio" id="genUser" name="userType" value="General User">
+                                        <label for="genUser">General User</label>
+                                        <br>
                                 </div>
                             </div> 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">
-                                    <button name="submit" type="submit" class="btnSubmit">Add User</button>
+                                    <button name="submit" type="submit" class="btnAddUser">Add User</button>
                                 </div>
                             </div>
                         </form>

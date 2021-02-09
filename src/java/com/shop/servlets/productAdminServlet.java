@@ -47,13 +47,13 @@ public class productAdminServlet extends HttpServlet {
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
 
-        if ("listProducts".equals(action)) {
-            ArrayList<Product> products = pMan.getAllProducts();
+        if (action.equals("listProducts")) {
+            ArrayList<Product> products = pMan.getHomePageProducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("/productAdmin.jsp").forward(request, response);
         }
 
-        if ("add".equals(action)) {
+        if (action.equals("add")) {
             request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
         }
         

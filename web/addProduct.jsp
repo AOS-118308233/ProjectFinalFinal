@@ -19,7 +19,7 @@
 
         <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
 
-      <title>Toys4Us Trading</title>
+        <title>Toys4Us Trading</title>
 
     </head>    
 
@@ -87,7 +87,7 @@
 
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="">
 
                     <h1 class="my-4">Add New Product</h1>
 
@@ -101,21 +101,21 @@
                         <form action="${insertProductUrl}" method="POST">
 
                             <div class="form-group row">
-                                <label for="prodCode" class="col-4 col-form-label">Product Code: </label> 
+                                <label for="productCode" class="col-4 col-form-label">Product Code: </label> 
                                 <div class="col-8">
                                     <input id="prodCode" name="productCode" type="text" class="form-control" required="required">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="prodName" class="col-4 col-form-label">Product Name: </label> 
+                                <label for="productName" class="col-4 col-form-label">Product Name: </label> 
                                 <div class="col-8">
                                     <input id="prodName" name="productName" type="text" class="form-control" required="required">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="prodDescr" class="col-4 col-form-label">Product Description: </label> 
+                                <label for="productDescription" class="col-4 col-form-label">Product Description: </label> 
                                 <div class="col-8">
                                     <input id="prodDescr" name="productDescription" type="text" class="form-control" required="required">
                                 </div>
@@ -150,22 +150,25 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="prodImage" class="col-4 col-form-label">Product Image: </label> 
+                                <label for="productImage" class="col-4 col-form-label">Product Image: </label> 
                                 <div class="col-8">
                                     <input id="prodImage" name="productImage" type="text" class="form-control" required="required">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="category" class="col-4 col-form-label">Category</label> 
+                                <label for="category" class="col-4 col-form-label">Category: </label> 
                                 <div class="col-8">
-                                        <select name="category" id="categories">
-                                        <option value="volvo">Teddy Bears</option>
-                                        <option value="saab">Animals</option>
-                                        <option value="mercedes">Branded Teddies</option>
-
-                                    </select>
-
+                                                                        
+                                        <input type="radio" id="bears" name="category" value="Teddy Bears">
+                                        <label for="bears">Teddy Bears</label>
+                                        <br>
+                                        <input type="radio" id="animals" name="category" value="Animals">
+                                        <label for="bears">Animals</label>
+                                        <br>
+                                        <input type="radio" id="brands" name="category" value="Branded Teddies">
+                                        <label for="bears">Branded Teddies</label>
+                                        <br>
                                 </div>
                             </div>
 
@@ -173,7 +176,7 @@
 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">
-                                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    <button name="submit" type="submit" class="btnAddProduct">Submit</button>
                                 </div>
                             </div>
                         </form> 

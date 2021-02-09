@@ -19,7 +19,7 @@ public class ProductManager {
     public ArrayList<Product> getHomePageProducts() {
 
         ProductDAO pDao = new ProductDAO();
-        return pDao.getTopProducts(12);
+        return pDao.getTopProducts(9);
 
     }
 
@@ -57,15 +57,17 @@ public class ProductManager {
         pDao.deleteProduct(productCode);
 
     }
-
-    //public ArrayList<Product> getCategoryList() {
+    
+    //public ArrayList<Product> getCategoryList (String category) {
     //    ProductDAO pDao = new ProductDAO();
-    //    ArrayList<Product> categoryList = pDao.getCategoryList();
-    //    return categoryList;
-       
-        
+    //    ArrayList<Product> productData = pDao.getCategoryList(productData);
+    //    return productData;
     //}
 
+    
+       
+        
+   
     public void searchProducts() {
         //search box is a from and submit it to the SearchServlet
         //Servlet calls searchProducts
