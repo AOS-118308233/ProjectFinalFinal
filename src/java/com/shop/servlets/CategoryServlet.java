@@ -19,26 +19,34 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aoife
  */
-public class ProductServlet extends HttpServlet {
+public class CategoryServlet extends HttpServlet {
 
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         
         ProductManager pMan = new ProductManager();
-        ArrayList<Product> topProducts = pMan.getHomePageProducts();
         ArrayList<String> categories = pMan.getCategories();
         
-        request.setAttribute("product", topProducts);
+        
+        String temp = request.getParameter("category");
+        String category = temp.replaceAll("%20", " "); 
+        ArrayList<Product> product = pMan.getCategoryProducts(category);
+
+        request.setAttribute("product", product);
         request.setAttribute("categories", categories);
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
-        
-        
-        //request.getRequestDispatcher("shop.jsp").forward(request, response);
-        
-   
-        System.out.println("Debugging");
+        request.getRequestDispatcher("/shop.jsp").forward(request, response);
     }
-     
+
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

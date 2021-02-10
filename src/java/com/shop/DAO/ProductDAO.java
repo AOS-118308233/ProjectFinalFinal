@@ -310,58 +310,85 @@ public class ProductDAO {
         }
 
     }
+    
+    public ArrayList<String> getCategories() {
+        
+        DBManager dm = new DBManager();
+        Connection con = dm.getConnection();
 
-    public void getCategoryList(ArrayList<Product> productData) {
+        String category = null;
+
+        ArrayList<String> categories = new ArrayList();
+        
+        String query = "SELECT * FROM PRODUCTS";
+        
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                category = (rs.getString(9));
+                if (categories.contains(category) == false) {
+                    categories.add(category);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
+    }
+    
+    public ArrayList<Product> getCategoryProducts(String category) {
 
         DBManager dmbgr = new DBManager();
         Connection con = dmbgr.getConnection();
-        Statement stmt = null;
-
-        try {
-            stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=BEAR");
-            stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                stmt.close();
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+                
+        String productCode = null;
+        String productName = null;
+        String productDescription = null;
+        String brandName = null;
+        int price = 0;
+        String colour = null;
+        String animalType = null;
+        String productImage = null;
+        
+        ArrayList<Product> productData =  new ArrayList();
+        
+        System.out.println(category);
+        String query = String.format("SELECT * FROM PRODUCTS WHERE CATEGORY='%s'", category);
         
         try {
-            stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=ANIMAL");
-            stmt.executeUpdate(sql);
+            PreparedStatement stmt = con.prepareCall(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                productCode = (rs.getString(1));
+                productName = (rs.getString(2));
+                productDescription = (rs.getString(3));
+                brandName = (rs.getString(4));
+                price = (rs.getInt(5));
+                colour = (rs.getString(6));
+                animalType = (rs.getString(7));
+                productImage = (rs.getString(8));
+               
+                Product product = new Product();
+                product.setProductCode(productCode);
+                product.setProductName(productName);
+                product.setProductDescription(productDescription);
+                product.setBrandName(brandName);
+                product.setPrice(price);
+                product.setColour(colour);
+                product.setAnimalType(animalType);
+                product.setProductImage(productImage);
+                
+                productData.add(product);
+            }
+            
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                stmt.close();
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        
         }
         
-        try {
-            stmt = con.createStatement();
-            String sql = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE CATEGORY=BRAND");
-            stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                stmt.close();
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
+        return productData;
         
     }
 

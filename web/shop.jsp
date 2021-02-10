@@ -91,41 +91,43 @@
             <br/>
             <br/>
 
-            <!-- Filter searches - adapted from https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
-            <div class="container" id="Filters">
-                <h2>Filter By:</h2>
-                <ul id="myUL">
-                    <li><a href="/CategoryServlet">Teddy Bears</a></li>
-                    <li><a href="/CategoryServlet">Animals</a></li>
-                    <li><a href="/CategoryServlet">Branded Toys</a></li>
-                </ul>
-
-                <br/>
-
-
-                <div class="row">
-                    <c:forEach items="${product}" var="topProduct">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card" style="height:600px; width:350px;">
-                                <img class="card-img-top" style="height:350px; width:350px;" src="resources/images/${topProduct.productImage}" alt="product">                                <div class="card-body">
-                                    <h4><a href="ViewProductServlet?productCode=${topProduct.productName}">${topProduct.productName}</a></h4>
-                                    <h5> €${topProduct.price}</h5>
-                                    <p class="card-text">${topProduct.productDescription}</p>
-                                    <form action="CartServlet?productCode=${topProduct.productName}" method="post">
-                                        <input type="hidden" name="productCode" value="${topProduct.productCode}">
-                                        <input type="hidden" name="action" value="cart">
-                                        <input type = "submit" value="Add To Cart" class="btnBuy">
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </c:forEach>
-
+            <div class="col-lg-3">
+                <h3 class="my-4">Categories:</h3>
+                <div class="list-group">
+                    <a href="ProductServlet" class="list-group-item active">All Products</a>
+                    <c:forEach items="${categories}" var="name">
+                    <a href="CategoryServlet?category=${name}" class="list-group-item active">${name}</a>
+                </c:forEach> 
                 </div>
-                <!-- /.row -->
+            </div>
+
+
+            <br/>
+
+
+            <div class="row">
+                <c:forEach items="${product}" var="topProduct">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card" style="height:600px; width:350px;">
+                            <img class="card-img-top" style="height:350px; width:350px;" src="resources/images/${topProduct.productImage}" alt="product">                                <div class="card-body">
+                                <h4><a href="ViewProductServlet?productCode=${topProduct.productName}">${topProduct.productName}</a></h4>
+                                <h5> €${topProduct.price}</h5>
+                                <p class="card-text">${topProduct.productDescription}</p>
+                                <form action="CartServlet?productCode=${topProduct.productName}" method="post">
+                                    <input type="hidden" name="productCode" value="${topProduct.productCode}">
+                                    <input type="hidden" name="action" value="cart">
+                                    <input type = "submit" value="Add To Cart" class="btnBuy">
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:forEach>
 
             </div>
+            <!-- /.row -->
+
+
 
         </div>
         <!-- /.row -->

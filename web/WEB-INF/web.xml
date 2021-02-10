@@ -18,7 +18,7 @@
         <servlet-class>com.shop.servlets.SearchServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SingleProductServlet</servlet-name>
+        <servlet-name>ViewProductServlet</servlet-name>
         <servlet-class>com.shop.servlets.ViewProductServlet</servlet-class>
     </servlet>
     <servlet>
@@ -32,6 +32,10 @@
     <servlet>
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>com.shop.servlets.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>com.shop.servlets.CategoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DbInitServlet</servlet-name>
@@ -50,8 +54,8 @@
         <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SingleProductServlet</servlet-name>
-        <url-pattern>/SingleProductServlet</url-pattern>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <url-pattern>/ViewProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>productAdminServlet</servlet-name>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/CategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -58,11 +58,15 @@ public class ProductManager {
 
     }
     
-    //public ArrayList<Product> getCategoryList (String category) {
-    //    ProductDAO pDao = new ProductDAO();
-    //    ArrayList<Product> productData = pDao.getCategoryList(productData);
-    //    return productData;
-    //}
+    public ArrayList<String> getCategories() {
+        ProductDAO pDao = new ProductDAO();
+        return pDao.getCategories();
+    }
+    
+    public ArrayList<Product> getCategoryProducts (String category) {
+        ProductDAO pDao = new ProductDAO();
+        return pDao.getCategoryProducts(category);
+    }
 
     
        
