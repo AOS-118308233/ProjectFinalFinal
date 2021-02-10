@@ -7,6 +7,7 @@
 <%@page import="com.shop.model.Product"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html>
     <head>      
@@ -86,47 +87,30 @@
 
         <h1>Your cart</h1>
 
-        <table>
-            <tr>
-                <th>Quantity</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Amount</th>
-                <th></th>
-            </tr>
-
-
-            <c:forEach items="${cart.items}" var="item" >
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>
-                        <form action="" method="post">
-                            <input type="hidden" name="productCode" 
-                                   value="<c:out value='${item.productCode}'/>">
-                            <input type=text name="quantity" 
-                                   value="<c:out value='${item.quantity}'/>" id="quantity">
-                            <input type="submit" value="Update">
-                        </form>
-                    </td>
-                    <td><c:out value='${item.productDescription}'/></td>
-                    <td>${item.price.priceCurrencyFormat}</td>
-                    <td>${item.totalCurrencyFormat}</td>
-                    <td>
-
-              
-                    <td>
-                        <form action="" method="post">
-                            <input type="hidden" name="productCode" 
-                                   value="<c:out value='${item.productCode}'/>">
-                            <input type="hidden" name="quantity" 
-                                   value="0">
-                            <input type="submit" value="Remove Item">
-                        </form>
-                    </td>
+                    <th>Quantity</th>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                   
                 </tr>
-            </c:forEach>
-        </table>
+            </thead>
 
-        <p><b>To change the quantity</b>, enter the new quantity and click on the Update button.</p>
+            <%@ taglib uri="WEB-INF/murach.tld" prefix="mma" %>
+            <mma:cart>
+                <tr>
+                    <td>${quantity}</td>
+                    <td>${productName}</td>
+                    <td>${productDescription}</td>
+                    <td>${price}</td>
+                    <td>${total}</td>
+                </tr>
+            </mma:cart>
+
+        </table>
 
         <form action="./ProductServlet" method="post">
             <input type="hidden" name="action" value="shop">

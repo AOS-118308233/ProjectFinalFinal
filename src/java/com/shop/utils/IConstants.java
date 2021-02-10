@@ -16,10 +16,12 @@ public interface IConstants {
     public static final String USER_TYPE_ADMIN = "ADMIN";
     public static final String USER_TYPE_GENERAL_USER = "GENUSER";
     
-    
     //Session Keys
     public static final String SESSION_KEY_USER = "SKUSER";
     public static final String SESSION_KEY_ALL_USERS = "SKALLUSERS";
+    
+    public static final String SESSION_KEY_PRODUCT = "SKPRODUCT";
+    public static final String SESSION_KEY_ALL_PRODUCTS = "SKALLPRODUCTS";
     
     
 }

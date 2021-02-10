@@ -25,10 +25,11 @@ public class ViewProductServlet extends HttpServlet {
         
         //Should be /viewProduct?productCode=xx
         
-        String productName = request.getParameter("productName");
+        String productCode = request.getParameter("productCode");
         ProductManager pMan = new ProductManager();
-        Product singleProduct = pMan.getProductByName(productName);
+        Product singleProduct = pMan.getProductByName(productCode);
         
+        System.out.println(singleProduct);
         request.setAttribute("singleProduct", singleProduct);
         request.getRequestDispatcher("/viewProduct.jsp").forward(request, response);
     }

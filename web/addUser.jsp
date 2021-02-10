@@ -105,13 +105,13 @@
                             <div class="form-group row">
                                 <label for="Surname" class="col-4 col-form-label">Surname:</label> 
                                 <div class="col-8">
-                                    <input id="Surname" name="Surname" placeholder="Surname" type="text" required="required" class="form-control">
+                                    <input id="Surname" name="lastName" placeholder="Surname" type="text" required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="emailAdd" class="col-4 col-form-label">Email:</label> 
                                 <div class="col-8">
-                                    <input id="emailAdd" name="emailAdd" placeholder="Email " type="text" class="form-control" required="required">
+                                    <input id="emailAdd" name="email" placeholder="Email " type="text" class="form-control" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -23,7 +23,7 @@ public class ProductManager {
 
     }
 
-    public Product getProduct(String productCode) throws SQLException {
+    public Product getProduct(String productCode) {
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductCode(productCode);
         return product;

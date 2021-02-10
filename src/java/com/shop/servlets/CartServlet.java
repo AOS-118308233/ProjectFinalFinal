@@ -8,7 +8,7 @@ package com.shop.servlets;
 import com.shop.model.Cart;
 import com.shop.model.LineItem;
 import com.shop.model.Product;
-import com.shop.service.ProductIO;
+import com.shop.service.ProductManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletContext;
@@ -33,15 +33,9 @@ public class CartServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    //Code taken from the ch07cart project
-    
-    @Override
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
         ServletContext sc = getServletContext();
         
         // get current action
@@ -77,13 +71,14 @@ public class CartServlet extends HttpServlet {
                 quantity = 1;
             }
 
-            String path = sc.getRealPath("/WEB-INF/products.txt");
-            Product product = ProductIO.getProduct(productCode, path);
+            ProductManager pMan = new ProductManager();
+            Product product = pMan.getProduct(productCode);
 
             LineItem lineItem = new LineItem();
             lineItem.setProduct(product);
             lineItem.setQuantity(quantity);
             if (quantity > 0) {
+                System.out.println("output" + lineItem.getProduct().getProductCode());
                 cart.addItem(lineItem);
             } else if (quantity == 0) {
                 cart.removeItem(lineItem);
@@ -99,4 +94,44 @@ public class CartServlet extends HttpServlet {
         sc.getRequestDispatcher(url)
                 .forward(request, response);
     }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

@@ -82,7 +82,7 @@ public class ProductDAO {
 
     }
 
-    public Product getProductCode(String productCode) throws SQLException {
+    public Product getProductCode(String productCode) {
         DBManager dbmgr = new DBManager();
         Connection con = dbmgr.getConnection();
 
@@ -115,7 +115,8 @@ public class ProductDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        
+        tempProduct.setProductCode(productCode);
         tempProduct.setProductName(productName);
         tempProduct.setProductDescription(productDescription);
         tempProduct.setBrandName(brandName);
@@ -190,23 +191,49 @@ public class ProductDAO {
         
         DBManager dm = new DBManager();
         Connection con = dm.getConnection();
+        
+        String productCode = null;
+        String productDescription = null;
+        String brandName = null;
+        int price = 0;
+        String colour = null;
+        String animalType = null;
+        String productImage = null;
+        String category = null;
+        Product tempProduct = new Product();
                
-        Product productData = new Product();
-        String query = "SELECT * FROM DBUSER.PRODUCTS WHERE PRODUCT_NAME" + "'" + productName + "'" ;
+        String query = String.format("SELECT * FROM DBUSER.PRODUCTS WHERE PRODUCT_NAME ='%s'", productName);
         
         try {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery(); 
            
-            while (rs.next()) {   
-            productData = new Product(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+            while (rs.next()) {
+                productCode = (rs.getString(1));
+                productDescription = (rs.getString(3));
+                brandName = (rs.getString(4));
+                price = (rs.getInt(5));
+                colour = (rs.getString(6));
+                animalType = (rs.getString(7));
+                productImage = (rs.getString(8));
+                category = (rs.getString(9));
             }
         }    
             catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        tempProduct.setProductCode(productCode);
+        tempProduct.setProductName(productName);
+        tempProduct.setProductDescription(productDescription);
+        tempProduct.setBrandName(brandName);
+        tempProduct.setPrice(price);
+        tempProduct.setColour(colour);
+        tempProduct.setAnimalType(animalType);
+        tempProduct.setProductImage(productImage);
+        
             
-            return productData;
+            return tempProduct;
         } 
     
     

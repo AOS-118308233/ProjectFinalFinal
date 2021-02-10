@@ -5,13 +5,14 @@
  */
 package com.shop.model;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 
 /**
  *
  * @author aoife
  */
-public class LineItem {
+public class LineItem implements Serializable {
     
     private Product product;
     private int quantity;
@@ -36,8 +37,7 @@ public class LineItem {
     }
 
     public double getTotal() {
-        double total;
-        total = product.getPrice() * quantity;
+        double total = product.getPrice() * quantity;
         return total;
     }
  

@@ -6,10 +6,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>CartServlet</servlet-name>
-        <servlet-class>com.shop.servlets.CartServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.shop.servlets.LoginServlet</servlet-class>
     </servlet>
@@ -33,13 +29,13 @@
         <servlet-name>userAdminServlet</servlet-name>
         <servlet-class>com.shop.servlets.userAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.shop.servlets.CartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DbInitServlet</servlet-name>
         <url-pattern>/DbInitServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CartServlet</servlet-name>
-        <url-pattern>/CartServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -64,6 +60,10 @@
     <servlet-mapping>
         <servlet-name>userAdminServlet</servlet-name>
         <url-pattern>/userAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/CartServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

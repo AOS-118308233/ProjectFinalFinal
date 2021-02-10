@@ -108,10 +108,12 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card" style="height:600px; width:350px;">
                                 <img class="card-img-top" style="height:350px; width:350px;" src="resources/images/${topProduct.productImage}" alt="product">                                <div class="card-body">
-                                    <h4><a href="./SingleProductServlet">${topProduct.productName}</a></h4>
+                                    <h4><a href="ViewProductServlet?productCode=${topProduct.productName}">${topProduct.productName}</a></h4>
                                     <h5> €${topProduct.price}</h5>
                                     <p class="card-text">${topProduct.productDescription}</p>
-                                    <form action="cart.jsp" method="post">
+                                    <form action="CartServlet?productCode=${topProduct.productName}" method="post">
+                                        <input type="hidden" name="productCode" value="${topProduct.productCode}">
+                                        <input type="hidden" name="action" value="cart">
                                         <input type = "submit" value="Add To Cart" class="btnBuy">
                                     </form>
                                 </div>

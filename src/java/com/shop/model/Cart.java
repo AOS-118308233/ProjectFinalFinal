@@ -5,18 +5,19 @@
  */
 package com.shop.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author aoife
  */
-public class Cart {
+public class Cart implements Serializable {
     
-    private ArrayList<LineItem> items;
+    private final ArrayList<LineItem> items;
 
     public Cart() {
-        items = new ArrayList<LineItem>();
+        items = new ArrayList<>();
     }
 
     public ArrayList<LineItem> getItems() {
@@ -28,11 +29,15 @@ public class Cart {
     }
 
     public void addItem(LineItem item) {
+        
         String productCode = item.getProduct().getProductCode();
         int quantity = item.getQuantity();
-        for (LineItem cartItem : items) {
-            if (cartItem.getProduct().getProductCode().equals(productCode)) {
-                cartItem.setQuantity(quantity);
+        
+        for (int i = 0; i <items.size(); i ++) {
+            LineItem lineItem = items.get(i);
+            
+            if (lineItem.getProduct().getProductCode().equals(productCode)) {
+                lineItem.setQuantity(quantity);
                 return;
             }
         }
@@ -41,8 +46,10 @@ public class Cart {
     
     public void removeItem(LineItem item) {
         String code = item.getProduct().getProductCode();
+        
         for (int i = 0; i < items.size(); i++) {
             LineItem lineItem = items.get(i);
+            
             if (lineItem.getProduct().getProductCode().equals(code)) {
                 items.remove(i);
                 return;
